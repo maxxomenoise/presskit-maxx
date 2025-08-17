@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MC MAXX | Press Kit 2025</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'Horizon';
+    src: url('assets/fonts/Horizon-Font/horizon.otf') format('opentype');
+    font-display: swap;
+  }
+
+  * {margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth;}
+  body {background:#000; font-family:'Poppins', sans-serif; color:white;}
+
+  /* ================= PAGE 1 ================= */
+  .page1 {position:relative; width:100%; height:100vh; background:url('assets/BG_1.png') no-repeat center/cover; overflow:hidden;}
+  .black-fade {position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.8) 100%); z-index:1;}
+  .cover-photo {position:absolute; bottom:0; left:50%; transform:translateX(-50%); height:102vh; z-index:2; opacity:0; transition:opacity 1.5s ease;}
+  .logo-moda {position:absolute; top:20px; left:20px; width:8vw; max-width:100px; min-width:35px; z-index:3; opacity:0; transition:opacity 1.2s ease;}
+  .logo-maxx {position:absolute; bottom:30px; left:50%; transform:translateX(-50%); width:30vw; max-width:480px; min-width:180px; z-index:4; opacity:0; transition:opacity 1.5s ease 0.5s;}
+  .title-small {position:absolute; bottom:25px; right:20px; font-size:.7rem; letter-spacing:5px; z-index:5; opacity:0; transition:opacity 1.2s ease 0.8s;}
+  .show .cover-photo, .show .logo-moda, .show .logo-maxx, .show .title-small {opacity:1;}
+
+  .bio-content {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:90%; max-width:800px; text-align:center; opacity:0; z-index:6; transition:opacity 1s ease; pointer-events:none;}
+  .bio-content h2 {font-family:'Horizon'; font-size:2rem; margin-bottom:20px; text-shadow:0 0 8px rgba(255,204,0,0.7),0 0 16px rgba(255,204,0,0.5);}
+  .bio-content p {font-size:.9rem; line-height:1.5; margin-bottom:10px;}
+  .bio-show .cover-photo, .bio-show .logo-moda, .bio-show .logo-maxx, .bio-show .title-small {opacity:0; pointer-events:none;}
+  .bio-show .bio-content {opacity:1; pointer-events:auto;}
+
+  .scroll-btn {margin-top:20px; padding:10px 22px; background:gold; color:black; font-weight:bold; border:none; border-radius:6px; cursor:pointer; font-size:.95rem; transition:background .3s ease;}
+  .scroll-btn:hover {background:#ffd700c7;}
+
+  /* ================= PAGE 2 (VENUES) ================= */
+  .page-venues {position:relative; padding:60px 5%;}
+  .page-venues::before {content:""; position:absolute; inset:0; background:url('assets/BG_ULTI.png') center/cover no-repeat; filter:blur(5px) brightness(80%); z-index:0;}
+  .venues-title {position:relative; font-family:'Horizon'; font-size:2.2rem; text-align:center; margin-bottom:50px; text-shadow:0 0 10px gold,0 0 20px gold; z-index:1;}
+  .venues-grid {position:relative; display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:1200px; margin:0 auto; z-index:1;}
+  .venue-card {background:#111; border-radius:12px; padding:10px; text-align:center; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease;}
+  .venue-card:hover {transform:translateY(-6px); box-shadow:0 0 18px rgba(255,215,0,0.35);}
+  .venue-card img {width:100%; border-radius:8px; object-fit:cover; transition:transform .3s ease, filter .3s ease;}
+  .venue-card:hover img {transform:scale(1.05); filter:brightness(75%);}
+  .venue-name {font-weight:600; margin-top:12px; font-size:1rem; color:#ffd700;} /* emas */
+  .venue-location {font-size:.8rem; line-height:1.4; margin-top:4px; color:#fff; opacity:.9;} /* putih */
+
+  @media(min-width:768px){.venues-grid{grid-template-columns:repeat(3,1fr); gap:25px;}}
+  @media(min-width:1024px){.venues-grid{grid-template-columns:repeat(4,1fr); gap:30px;}}
+
+  /* ================= PAGE 3 (GALLERY) ================= */
+  .page-gallery {position:relative; padding:60px 5% 70px;}
+  .page-gallery::before {content:""; position:absolute; inset:0; background:url("assets/BG_4.png") center/cover no-repeat; filter:brightness(75%); z-index:-1;}
+  .gallery-title {font-family:"Horizon"; font-size:2.3rem; text-align:center; margin-bottom:40px; text-shadow:0 0 10px rgba(255,215,0,0.9),0 0 20px rgba(255,215,0,0.6),0 0 40px rgba(255,215,0,0.3);}
+  .masonry {column-count:2; column-gap:16px; max-width:1200px; margin:0 auto;}
+  .masonry-item {margin-bottom:16px; border-radius:14px; overflow:hidden; break-inside:avoid; cursor:pointer; transition:transform .3s ease;}
+  .masonry-item img {width:100%; display:block; border-radius:14px; transition:transform .3s ease;}
+  .masonry-item:hover img {transform:scale(1.04);}
+  @media(min-width:700px){.masonry{column-count:3;}} 
+  @media(min-width:1024px){.masonry{column-count:4;}}
+
+  /* ================= PAGE 4 (CATCH ME) ================= */
+  .page-contact {position:relative; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:40px 20px;}
+  .page-contact::before {content:""; position:absolute; inset:0; background:url('assets/BG_5.jpeg') center/cover no-repeat; filter:brightness(70%); z-index:-1;}
+  .contact-title {font-family:'Horizon'; font-size:2.5rem; margin-bottom:30px; text-shadow:0 0 10px gold,0 0 20px gold;}
+  .contact-icons {display:flex; gap:40px; margin-bottom:30px;}
+  .contact-icons img {width:50px; height:50px; cursor:pointer; transition:transform .3s ease, filter .3s ease; filter:brightness(0) invert(1);} /* putih */
+  .contact-icons img:hover {transform:scale(1.15); filter:brightness(0) saturate(100%) invert(74%) sepia(95%) saturate(734%) hue-rotate(5deg) brightness(103%) contrast(105%);} /* emas */
+  .contact-btn {padding:12px 40px; background:gold; color:black; font-weight:bold; font-family:'Poppins',sans-serif; font-size:1rem; border:none; border-radius:6px; cursor:pointer; text-decoration:none; transition:background .3s ease;}
+  .contact-btn:hover {background:#ffd700c7;}
+  .footer-note {position:absolute; bottom:15px; font-size:.75rem; opacity:.8;}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page1" id="page1">
+  <div class="black-fade"></div>
+  <img src="assets/COVER_FOTO_1.png" alt="MC MAXX" class="cover-photo">
+  <img src="assets/LOGO_MODA.png" alt="MODA Logo" class="logo-moda">
+  <img src="assets/LOGO_MAXX_TransparentBG.png" alt="MAXX Logo" class="logo-maxx">
+  <div class="title-small">OFFICIAL PRESS KIT<br>2025</div>
+  <div class="bio-content" id="bio">
+    <h2>BIOGRAPHY</h2>
+    <p>MAXX is an MC from Lampung, Indonesia, who kicked off his career in August 2023. Starting from local stages in his hometown, he quickly made a name for himself with high energy, crowd control, and a natural stage presence that’s hard to ignore.</p>
+    <p>In January 2024, he moved to Jakarta to chase bigger stages and bolder dreams—and it paid off. Now an official Talent MC under Holywings Group (HWG), MAXX continues to bring unforgettable vibes to every event.</p>
+    <button class="scroll-btn" onclick="document.getElementById('venues').scrollIntoView()">VENUES PERFORMED</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page-venues" id="venues">
+  <div class="venues-title">VENUES</div>
+  <div class="venues-grid">
+    <div class="venue-card"><img src="assets/venuephoto/svns.jpg"><div class="venue-name">SVNS</div><div class="venue-location">SVNS Point<br>SVNS Kuy</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/center_stage.jpg"><div class="venue-name">Center Stage</div><div class="venue-location">Lampung</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/southbank.jpg"><div class="venue-name">Southbank Gastrobar</div><div class="venue-location">Lampung</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/helens_nightmart.jpg"><div class="venue-name">Helen's Night Mart</div><div class="venue-location">Gading Serpong<br>Tanjung Duren<br>Citra 6<br>Sunter<br>Gunawarman</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/helens_party.jpg"><div class="venue-name">Helen's Party Station</div><div class="venue-location">Gunawarman</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/helens.jpg"><div class="venue-name">Helen's</div><div class="venue-location">Epicentrum</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/gold_dragon.jpg"><div class="venue-name">Gold Dragon</div><div class="venue-location">Bekasi<br>PIK<br>Senayan<br>BSD</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/live_house.jpg"><div class="venue-name">Live House</div><div class="venue-location">BSD<br>PIK<br>Kelapa Gading</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/lil_tiger.jpg"><div class="venue-name">Lil Tiger</div><div class="venue-location">BSD<br>PIK</div></div>
+    <div class="venue-card"><img src="assets/venuephoto/others.jpg"><div class="venue-name">Others</div><div class="venue-location">Pendekar Bar & Resto<br>Bablas Gading Serpong<br>80 Proof Ultra<br>Gen's Bar Jakarta</div></div>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page-gallery" id="gallery">
+  <div class="gallery-title">GIGS &amp; GALLERY</div>
+  <div class="masonry">
+    <div class="masonry-item"><img src="assets/Gallery/PICT1.jpg" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT2.jpg" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT3.jpg" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT4.png" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT5.png" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT6.png" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT7.jpg" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT8.png" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT9.png" loading="lazy"></div>
+    <div class="masonry-item"><img src="assets/Gallery/PICT10.png" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page-contact" id="contact">
+  <div class="contact-title">CATCH ME</div>
+  <div class="contact-icons">
+    <a href="https://www.instagram.com/modacollective__?igsh=MXR2NDg0MGNmcTNqdg==" target="_blank"><img src="assets/icons/iconmonstr-instagram.svg" alt="Instagram"></a>
+    <a href="https://wa.me/6285161772577" target="_blank"><img src="assets/icons/iconmonstr-whatsapp.svg" alt="WhatsApp"></a>
+    <a href="mailto:modacollectivee@gmail.com"><img src="assets/icons/iconmonstr-gmail.svg" alt="Email"></a>
+  </div>
+  <a href="https://www.instagram.com/maxxomenoise?igsh=MWtmazR6cjh1dG9odQ==" target="_blank" class="contact-btn">GET TO KNOW ME</a>
+  <div class="footer-note">Talent of MODA COLLECTIVE</div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+  const page1=document.getElementById('page1');
+  window.addEventListener('load',()=>{page1.classList.add('show');});
+  const triggerBio=()=>{page1.classList.add('bio-show');};
+  ['click','mousedown','touchstart','wheel'].forEach(evt=>{
+    page1.addEventListener(evt,triggerBio,{once:true});
+  });
+</script>
+</body>
+</html>
